@@ -10,10 +10,10 @@
   <%= @post.content %>
 </p>
 
-<p>
+<p class='images'>
   <strong>Picture:</strong><br>
   <% @post.pictures.each do |picture| %>
-    <%= image_tag picture, width: '10%' %>
+    <%= link_to image_tag(picture.variant(resize: "100x100^", extent: '100x100', gravity: 'center')), url_for(picture) %>
   <% end %>
 </p>
 <%= link_to 'Edit', edit_post_path(@post) %> |
